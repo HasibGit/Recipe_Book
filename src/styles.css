@@ -7,3 +7,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .container{
     margin: 0 50px;
 }
+
+.make-space-below{
+    margin-bottom: 30px;
+}
+.make-space-above{
+    margin-top: 30px;
+}

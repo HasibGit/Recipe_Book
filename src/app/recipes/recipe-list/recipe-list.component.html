@@ -1,1 +1,33 @@
+<div>
+    <button mat-raised-button color="primary" class="make-space-below make-space-above">Add Recipe</button>
+</div>
+
+
+
+<div class="make-space-below">
+    <mat-list>
+
+        <mat-list-item *ngFor="let recipe of recipes">
+            <a href="#" style="text-decoration: none; color: black;">
+                <div fxLayout="row" fxLayoutGap="10px">
+                    <div fxFlex="60%">
+                        <h3 matLine>{{recipe.name}}</h3>
+                        <p matLine>{{recipe.description}}</p>
+                    </div>
+
+                    <div fxFlex="40%">
+                        <img style="width: 100%; height: auto" src={{recipe.imagePath}} alt="">
+                    </div>
+                </div>
+            </a>
+        </mat-list-item>
+
+
+
+    </mat-list>
+</div>
+
+
+
+
 <app-recipe-item></app-recipe-item>
