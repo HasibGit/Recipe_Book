@@ -1,13 +1,19 @@
-<mat-toolbar class="mat-elevation-z5" color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+<mat-toolbar class="mat-elevation-z5" color="primary" fxLayout="column" fxLayout.gt-sm="row"
+    fxLayoutAlign="space-between center">
     <span>
-        <mat-icon aria-hidden="false" aria-label="Example home icon">menu_book</mat-icon>
-        RECIPE BOOK
+        <span>
+            <mat-icon aria-hidden="false" aria-label="Example home icon">menu_book</mat-icon>
+            RECIPE BOOK
+        </span>
 
-        <a mat-button>Recipes</a>
-        <a mat-button>Shopping List</a>
+        <span fxShow="true" fxHide.lt-md="true"><a mat-button>Recipes</a></span>
+
+        <span fxShow="true" fxHide.lt-md="true"> <a mat-button>Shopping List</a>
+        </span>
+
     </span>
 
-    <span>
+    <span fxShow="true" fxHide.lt-md="true">
         <button mat-button [matMenuTriggerFor]="menu">
             Manage
             <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
@@ -19,3 +25,16 @@
     </span>
 
 </mat-toolbar>
+
+<mat-action-list fxShow="true" fxHide.gt-sm="true" fxLayout="column" fxLayoutAlign="center start">
+    <button mat-button> Recipes </button>
+    <button mat-button> Shopping List </button>
+    <button mat-button [matMenuTriggerFor]="menu">
+        Manage
+        <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Save Data</button>
+        <button mat-menu-item>Fetch Data</button>
+    </mat-menu>
+</mat-action-list>
