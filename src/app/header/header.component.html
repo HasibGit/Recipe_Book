@@ -1,1 +1,21 @@
-<p>header works!</p>
+<mat-toolbar class="mat-elevation-z5" color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+        <mat-icon aria-hidden="false" aria-label="Example home icon">menu_book</mat-icon>
+        RECIPE BOOK
+
+        <a mat-button>Recipes</a>
+        <a mat-button>Shopping List</a>
+    </span>
+
+    <span>
+        <button mat-button [matMenuTriggerFor]="menu">
+            Manage
+            <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Save Data</button>
+            <button mat-menu-item>Fetch Data</button>
+        </mat-menu>
+    </span>
+
+</mat-toolbar>
