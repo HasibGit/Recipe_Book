@@ -1,1 +1,25 @@
-<p>recipe-detail works!</p>
+<div class="container make-space-above">
+    <mat-card class="example-card">
+        <img style="width: 350px; height: auto; padding :10px;" mat-card-image
+            src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+
+        <mat-card-header>
+            <mat-card-title>Recipe Name</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Manage Recipe</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>To Shopping List</button>
+                <button mat-menu-item>Edit Recipe</button>
+                <button mat-menu-item>Delete Recipe</button>
+            </mat-menu>
+            <p style="margin-top: 10px">
+                Recipe Description
+            </p>
+            <p style="margin-top: 10px">
+                Ingredients
+            </p>
+        </mat-card-content>
+    </mat-card>
+</div>
