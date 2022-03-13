@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Recipe_Book';
+
+  pageContent: string = 'display recipes';
+
+  contentToDisplay(content) {
+    this.pageContent = content;
+  }
+
 }

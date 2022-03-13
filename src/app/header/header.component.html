@@ -6,9 +6,9 @@
             RECIPE BOOK
         </span>
 
-        <span fxShow="true" fxHide.lt-md="true"><a mat-button>Recipes</a></span>
+        <span fxShow="true" fxHide.lt-md="true"><a mat-button (click)="buttonClicked('recipe')">Recipes</a></span>
 
-        <span fxShow="true" fxHide.lt-md="true"> <a mat-button>Shopping List</a>
+        <span fxShow="true" fxHide.lt-md="true"> <a mat-button (click)="buttonClicked('shopping-list')">Shopping List</a>
         </span>
 
     </span>
@@ -27,8 +27,8 @@
 </mat-toolbar>
 
 <mat-action-list fxShow="true" fxHide.gt-sm="true" fxLayout="column" fxLayoutAlign="center start">
-    <button mat-button> Recipes </button>
-    <button mat-button> Shopping List </button>
+    <button mat-button (click)="buttonClicked('recipe')"> Recipes </button>
+    <button mat-button (click)="buttonClicked('shopping-list')"> Shopping List </button>
     <button mat-button [matMenuTriggerFor]="menu">
         Manage
         <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>

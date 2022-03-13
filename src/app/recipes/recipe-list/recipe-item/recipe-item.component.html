@@ -1,1 +1,14 @@
-<p>recipe-item works!</p>
+<mat-list-item>
+    <a mat-line href="#" style="text-decoration: none; color: black;" (click)="onClick(recipeItem)">
+        <div fxLayout="row" fxLayoutGap="10px">
+            <div fxFlex="60%">
+                <h3 mat-line>{{recipeItem.name}}</h3>
+                <p mat-line>{{recipeItem.description}}</p>
+            </div>
+    
+            <div fxFlex="40%">
+                <img mat-line style="width: 100%; height: auto" src={{recipeItem.imagePath}} alt="">
+            </div>
+        </div>
+    </a>
+</mat-list-item>

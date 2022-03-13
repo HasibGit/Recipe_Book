@@ -5,25 +5,7 @@
 
 
 <div class="make-space-below">
-    <mat-nav-list>
-
-        <mat-list-item *ngFor="let recipe of recipes">
-            <a mat-line href="#" style="text-decoration: none; color: black;">
-                <div fxLayout="row" fxLayoutGap="10px">
-                    <div fxFlex="60%">
-                        <h3 mat-line>{{recipe.name}}</h3>
-                        <p mat-line>{{recipe.description}}</p>
-                    </div>
-
-                    <div fxFlex="40%">
-                        <img mat-line style="width: 100%; height: auto" src={{recipe.imagePath}} alt="">
-                    </div>
-                </div>
-            </a>
-        </mat-list-item>
-
+    <mat-nav-list *ngFor="let recipe of recipes">
+        <app-recipe-item [recipeItem]="recipe"></app-recipe-item>
     </mat-nav-list>
 </div>
-
-
-<app-recipe-item></app-recipe-item>
