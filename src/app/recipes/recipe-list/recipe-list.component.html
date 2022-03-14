@@ -6,6 +6,6 @@
 
 <div class="make-space-below">
     <mat-nav-list *ngFor="let recipe of recipes">
-        <app-recipe-item [recipeItem]="recipe"></app-recipe-item>
+        <app-recipe-item (displayRecipe)="propagateRecipe($event)" [recipeItem]="recipe"></app-recipe-item>
     </mat-nav-list>
 </div>

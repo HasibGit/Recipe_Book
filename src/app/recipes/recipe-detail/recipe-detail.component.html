@@ -1,10 +1,10 @@
-<div class="container make-space-above">
+<div class="container make-space-above" *ngIf="recipeItem; else info">
     <mat-card class="example-card">
-        <img style="width: 350px; height: auto; padding :10px;" mat-card-image
-            src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img style="width: 350px; height: auto; padding :10px;" mat-card-image src={{recipeItem.imagePath}}
+            alt="Photo of a Shiba Inu">
 
         <mat-card-header>
-            <mat-card-title>Recipe Name</mat-card-title>
+            <mat-card-title>{{recipeItem.name}}</mat-card-title>
         </mat-card-header>
 
         <mat-card-content>
@@ -15,7 +15,7 @@
                 <button mat-menu-item>Delete Recipe</button>
             </mat-menu>
             <p style="margin-top: 10px">
-                Recipe Description
+                {{recipeItem.description}}
             </p>
             <p style="margin-top: 10px">
                 Ingredients
@@ -23,3 +23,7 @@
         </mat-card-content>
     </mat-card>
 </div>
+
+<ng-template #info>
+    <p style="margin-top: 30px; text-align: center;">Please select a recipe</p>
+</ng-template>

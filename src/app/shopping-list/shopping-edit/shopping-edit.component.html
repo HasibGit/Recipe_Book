@@ -1,17 +1,17 @@
 <div class="make-space-below">
     <mat-form-field hintLabel="Max 15 characters" appearance="fill" style="margin-right: 10px;">
         <mat-label>Ingredient Name</mat-label>
-        <input matInput #input maxlength="15" placeholder="Ex. Potato">
+        <input matInput #input maxlength="15" placeholder="Ex. Potato" #ingredientNameField>
         <mat-hint align="end">{{input.value?.length || 0}}/15</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="fill" floatLabel="always">
         <mat-label>Amount</mat-label>
-        <input matInput type="number" class="example-right-align" placeholder="0">
+        <input matInput type="number" class="example-right-align" placeholder="0" #ingredientAmountField>
     </mat-form-field>
 
     <div class="make-space-above">
-        <button mat-raised-button color="primary" style="margin: 3px">Add</button>
+        <button mat-raised-button color="primary" style="margin: 3px" (click)="addIngredient()">Add</button>
         <button mat-raised-button color="warn" style="margin: 3px">Delete</button>
         <button mat-raised-button color="accent" style="margin: 3px">Clear</button>
     </div>
