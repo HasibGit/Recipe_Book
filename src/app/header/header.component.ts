@@ -14,13 +14,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  buttonClicked(link) {
-    if (link == 'recipe') {
-      this.displayContent.emit('display recipes');
-    }
-    if (link == 'shopping-list') {
-      this.displayContent.emit('display shopping list');
-    }
-  }
+  // buttonClicked(link) {
+  //   if (link == 'recipe') {
+  //     this.displayContent.emit('display recipes');
+  //   }
+  //   if (link == 'shopping-list') {
+  //     this.displayContent.emit('display shopping list');
+  //   }
+  // }
 
 }

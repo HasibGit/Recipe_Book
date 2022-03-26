@@ -10,16 +10,18 @@
         <mat-card-content>
             <button mat-raised-button color="accent" [matMenuTriggerFor]="menu">Manage Recipe</button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item>To Shopping List</button>
-                <button mat-menu-item>Edit Recipe</button>
+                <button mat-menu-item (click)="addToShoppingList(recipeItem.ingredients)">To Shopping List</button>
+                <button mat-menu-item (click)="editRecipe()">Edit Recipe</button>
                 <button mat-menu-item>Delete Recipe</button>
             </mat-menu>
             <p style="margin-top: 10px">
                 {{recipeItem.description}}
             </p>
-            <p style="margin-top: 10px">
-                Ingredients
-            </p>
+
+            <ul style="margin-top: 10px" *ngFor="let ingredient of recipeItem.ingredients">
+                <li>{{ingredient.name}} - {{ingredient.amount}}</li>
+            </ul>
+
         </mat-card-content>
     </mat-card>
 </div>

@@ -21,16 +21,10 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-
-
-
-
-
-
-
-
-
-
+import { RecipeService } from './recipes/services/recipe.service';
+import { ShoppingListService } from './shopping-list/services/shopping-list.service';
+import { RoutingModule } from './app-routing.module';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +35,8 @@ import { FormsModule } from '@angular/forms';
     RecipeItemComponent,
     RecipeDetailComponent,
     ShoppingListComponent,
-    ShoppingEditComponent
+    ShoppingEditComponent,
+    RecipeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -56,9 +51,10 @@ import { FormsModule } from '@angular/forms';
     MatBadgeModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    RoutingModule
   ],
-  providers: [],
+  providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

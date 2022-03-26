@@ -1,10 +1,10 @@
 <div class="container make-space-above make-space-below">
 
-    <app-shopping-edit (addedIngredient)="addIngredient($event)"></app-shopping-edit>
+    <app-shopping-edit></app-shopping-edit>
 
     <mat-nav-list>
 
-        <a mat-list-item *ngFor="let ingredient of ingredients">
+        <a mat-list-item *ngFor="let ingredient of shoppingList">
             <div matBadge="{{ingredient.amount}}" matBadgeOverlap="false">
                 {{ingredient.name}}
             </div>

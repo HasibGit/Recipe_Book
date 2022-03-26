@@ -1,5 +1,5 @@
-<mat-list-item>
-    <a mat-line href="#" style="text-decoration: none; color: black;" (click)="onClick(recipeItem)">
+<mat-list-item [routerLink]="['recipe/', recipeId]">
+    <a mat-line style="text-decoration: none; color: black; cursor: pointer;">
         <div fxLayout="row" fxLayoutGap="10px">
             <div fxFlex="60%">
                 <h3 mat-line>{{recipeItem.name}}</h3>

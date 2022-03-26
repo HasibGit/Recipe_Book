@@ -1,11 +1,11 @@
 <div class="make-space-below make-space-above">
-    <button mat-raised-button color="primary">Add Recipe</button>
+    <button mat-raised-button color="primary" [routerLink]="['new']">Add Recipe</button>
 </div>
 
 
 
 <div class="make-space-below">
-    <mat-nav-list *ngFor="let recipe of recipes">
-        <app-recipe-item (displayRecipe)="propagateRecipe($event)" [recipeItem]="recipe"></app-recipe-item>
+    <mat-nav-list *ngFor="let recipe of recipes; index as idx">
+        <app-recipe-item  [recipeItem]="recipe" [recipeId]="idx"></app-recipe-item>
     </mat-nav-list>
 </div>
