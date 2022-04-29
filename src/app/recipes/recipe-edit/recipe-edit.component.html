@@ -1,1 +1,39 @@
-<p>recipe-edit works!</p>
+<div class="container">
+
+  <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()" *ngIf="recipeForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Name</mat-label>
+      <input type="text" matInput formControlName="Name">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label for="name">Image URL</mat-label>
+      <input type="text" matInput formControlName="ImagePath">
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="desription-field">
+      <mat-label for="name">Description</mat-label>
+      <textarea rows="10" type="text" matInput placeholder="Recipe Description" formControlName="Description"></textarea>
+      <mat-icon matSuffix>edit</mat-icon>
+    </mat-form-field>
+
+    <div fxLayout="row" fxLayoutGap="20px">
+      <mat-form-field appearance="outline" fxFlex="70">
+        <mat-label for="name">Ingredient Name</mat-label>
+        <input type="text" matInput>
+        <mat-icon matSuffix>edit</mat-icon>
+      </mat-form-field>
+      <mat-form-field appearance="fill" fxFlex="30">
+        <mat-label for="name">Amount</mat-label>
+        <input matInput type="number"placeholder="0" pattern="^[1-9]+[0-9]*$">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-raised-button color="warn">Cancel</button>
+    </div>
+  </form>
+  
+</div>

@@ -1,0 +1,3 @@
+mat-list-option[aria-selected="true"] {
+  background: mat-color($mat-light-theme-background, hover, 0.12);
+}

@@ -20,7 +20,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RecipeService } from './recipes/services/recipe.service';
 import { ShoppingListService } from './shopping-list/services/shopping-list.service';
 import { RoutingModule } from './app-routing.module';
@@ -36,7 +36,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     RecipeDetailComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    RecipeEditComponent
+    RecipeEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,9 +52,10 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    RoutingModule
+    ReactiveFormsModule,
+    RoutingModule,
   ],
   providers: [RecipeService, ShoppingListService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
