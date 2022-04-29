@@ -18,16 +18,25 @@
       <mat-icon matSuffix>edit</mat-icon>
     </mat-form-field>
 
-    <div fxLayout="row" fxLayoutGap="20px">
-      <mat-form-field appearance="outline" fxFlex="70">
-        <mat-label for="name">Ingredient Name</mat-label>
-        <input type="text" matInput>
-        <mat-icon matSuffix>edit</mat-icon>
-      </mat-form-field>
-      <mat-form-field appearance="fill" fxFlex="30">
-        <mat-label for="name">Amount</mat-label>
-        <input matInput type="number"placeholder="0" pattern="^[1-9]+[0-9]*$">
-      </mat-form-field>
+    <div formArrayName="Ingredients" fxLayout="column">
+
+      <div *ngFor="let ingredient of getControls(); index as i" [formGroupName]="i" fxLayout="row" fxLayoutGap="20px">
+        <mat-form-field appearance="outline" fxFlex="50">
+          <mat-label for="name">Ingredient Name</mat-label>
+          <input type="text" matInput formControlName="ingredientName">
+          <mat-icon matSuffix>edit</mat-icon>
+        </mat-form-field>
+        <mat-form-field appearance="fill" fxFlex="20">
+          <mat-label for="name">Amount</mat-label>
+          <input matInput type="number"placeholder="0" pattern="^[1-9]+[0-9]*$" formControlName="ingredientAmount">
+        </mat-form-field>
+
+        <button mat-icon-button>
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+
+      
     </div>
 
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
