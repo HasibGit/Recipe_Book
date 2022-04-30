@@ -13,6 +13,7 @@
       <input type="text" matInput formControlName="imagePath">
       <mat-icon matSuffix>edit</mat-icon>
       <mat-error>This field is required</mat-error>
+      <img style="width: 100%; padding: 20px" [src]="recipeForm.value.imagePath" alt="">
     </mat-form-field>
     <mat-form-field appearance="outline" class="desription-field">
       <mat-label for="name">Description</mat-label>
@@ -51,7 +52,7 @@
 
     <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="10px">
       <button mat-raised-button color="primary" type="submit" [disabled]="!recipeForm.valid">Save</button>
-      <button mat-raised-button color="warn">Cancel</button>
+      <button mat-raised-button color="warn" type="button" routerLink="">Cancel</button>
     </div>
   </form>
   

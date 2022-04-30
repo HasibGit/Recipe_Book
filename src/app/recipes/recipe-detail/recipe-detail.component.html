@@ -12,7 +12,7 @@
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="addToShoppingList(recipeItem.ingredients)">To Shopping List</button>
                 <button mat-menu-item (click)="editRecipe()">Edit Recipe</button>
-                <button mat-menu-item>Delete Recipe</button>
+                <button mat-menu-item (click)="deleteRecipe()">Delete Recipe</button>
             </mat-menu>
             <p style="margin-top: 10px">
                 {{recipeItem.description}}
