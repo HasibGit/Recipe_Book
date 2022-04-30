@@ -23,18 +23,23 @@ export class RecipeEditComponent implements OnInit {
       if (params['id'] != null) {
         this.editMode = true;
         this.id = +params['id'];
-        this.initializeForm();
       }
+      this.initializeForm();
     });
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    if (this.editMode) {
+      this.recipeService.updateRecipe(this.recipeForm.value, this.id);
+    } else {
+      this.recipeService.addRecipe(this.recipeForm.value);
+    }
   }
 
   private initializeForm() {
     let recipeName = '';
-    let imagePath = '';
+    let imagePath =
+      'https://skillz4kidzmartialarts.com/wp-content/uploads/2017/04/default-image.jpg';
     let recipeDescription = '';
     let recipeIngredients = new FormArray([]);
 
@@ -42,14 +47,14 @@ export class RecipeEditComponent implements OnInit {
       const recipe = this.recipeService.getRecipe(this.id);
 
       recipeName = recipe.name;
-      imagePath = recipe.imagePath;
+      imagePath = recipe.imagePath ? recipe.imagePath : imagePath;
       recipeDescription = recipe.description;
       if (recipe.ingredients) {
         for (let ingredient of recipe.ingredients) {
           recipeIngredients.push(
             new FormGroup({
-              ingredientName: new FormControl(ingredient.name),
-              ingredientAmount: new FormControl(ingredient.amount),
+              name: new FormControl(ingredient.name),
+              amount: new FormControl(ingredient.amount),
             })
           );
         }
@@ -57,14 +62,32 @@ export class RecipeEditComponent implements OnInit {
     }
 
     this.recipeForm = new FormGroup({
-      Name: new FormControl(recipeName, [Validators.required]),
-      ImagePath: new FormControl(imagePath, [Validators.required]),
-      Description: new FormControl(recipeDescription, [Validators.required]),
-      Ingredients: recipeIngredients,
+      name: new FormControl(recipeName, [Validators.required]),
+      imagePath: new FormControl(imagePath, [Validators.required]),
+      description: new FormControl(recipeDescription, [Validators.required]),
+      ingredients: recipeIngredients,
     });
   }
 
   getControls() {
-    return (<FormArray>this.recipeForm.get('Ingredients')).controls;
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
+  }
+
+  onAddIngredient() {
+    console.log(this.recipeForm);
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name: new FormControl(null, [Validators.required]),
+        amount: new FormControl(null, [
+          Validators.required,
+          Validators.pattern('^[1-9]+[0-9]*$'),
+        ]),
+      })
+    );
+  }
+
+  removeIngredient(id: number, i: number) {
+    this.recipeService.removeIngredient(id, i);
+    (<FormArray>this.recipeForm.get('ingredients')).controls.splice(i, 1);
   }
 }

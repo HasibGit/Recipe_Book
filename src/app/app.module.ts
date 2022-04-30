@@ -18,6 +18,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -51,6 +52,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     MatBadgeModule,
     MatFormFieldModule,
     MatInputModule,
+    MatDividerModule,
     FormsModule,
     ReactiveFormsModule,
     RoutingModule,
