@@ -1,17 +1,26 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Recipe } from '../recipes/recipe.model';
+import { RecipeService } from '../recipes/services/recipe.service';
+import { DataStorageService } from '../shared/data-storage.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-
   @Output() displayContent = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private dataStorageService: DataStorageService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSaveData() {
+    this.dataStorageService.storeRecipes();
+  }
+
+  onFetchData() {
+    this.dataStorageService.fetchRecipes().subscribe();
   }
 
   // buttonClicked(link) {
@@ -22,5 +31,4 @@ export class HeaderComponent implements OnInit {
   //     this.displayContent.emit('display shopping list');
   //   }
   // }
-
 }

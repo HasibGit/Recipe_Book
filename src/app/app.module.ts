@@ -26,6 +26,8 @@ import { RecipeService } from './recipes/services/recipe.service';
 import { ShoppingListService } from './shopping-list/services/shopping-list.service';
 import { RoutingModule } from './app-routing.module';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     ShoppingListComponent,
     ShoppingEditComponent,
     RecipeEditComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
     FormsModule,
     ReactiveFormsModule,
     RoutingModule,
+    HttpClientModule,
   ],
   providers: [RecipeService, ShoppingListService],
   bootstrap: [AppComponent],

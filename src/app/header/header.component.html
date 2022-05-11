@@ -8,6 +8,8 @@
 
         <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/recipes" routerLinkActive="activebutton">Recipes</a></span>
 
+        <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/auth" routerLinkActive="activebutton">Login/SignUp</a></span>
+
         <span fxShow="true" fxHide.lt-md="true"> <a mat-button routerLink="/shopping-list" routerLinkActive="activebutton">Shopping List</a>
         </span>
 
@@ -19,8 +21,8 @@
             <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Save Data</button>
-            <button mat-menu-item>Fetch Data</button>
+            <button mat-menu-item (click)="onSaveData()">Save Data</button>
+            <button mat-menu-item (click)="onFetchData()">Fetch Data</button>
         </mat-menu>
     </span>
 
@@ -34,7 +36,7 @@
         <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Save Data</button>
-        <button mat-menu-item>Fetch Data</button>
+        <button mat-menu-item (click)="onSaveData()">Save Data</button>
+        <button mat-menu-item (click)="onFetchData()">Fetch Data</button>
     </mat-menu>
 </mat-action-list>
