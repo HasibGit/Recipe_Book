@@ -1,22 +1,31 @@
 <div class="container">
-    <form>
+
+  <div color="warn" *ngIf="error" style="width: 50%; border: 1px solid black; background-color: rgb(215, 125, 125); text-align: center; border-radius: 5px; padding: 10px; margin: 20px auto;">
+    <span style="color: white">{{error}}</span>
+  </div>
+
+  <div *ngIf="isLoading" style="text-align: center;">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+    <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
       <div fxLayout="column" fxLayoutAlign="center center">
         <mat-form-field appearance="fill">
           <mat-label for="email">Email</mat-label>
-          <input type="email" id="email" matInput>
+          <input type="email" id="email" matInput name="email" ngModel required email>
         </mat-form-field>
   
         <mat-form-field appearance="fill">
           <mat-label for="password">Password</mat-label>
-          <input type="password" id="password" matInput>
+          <input type="password" id="password" matInput ngModel name="password" required minlength="6">
         </mat-form-field>
   
         <div fxLayout="row" fxLayoutAlign="space-between center" class="btn-grp">
           <div>
-            <button mat-raised-button color="primary">Sign Up</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">{{isLoggedIn ? 'Login' : 'Sign Up'}}</button>
           </div>
           <div>
-            <button mat-raised-button>Switch To Login</button>
+            <button mat-raised-button type="button" (click)="onSwitchMode()">{{isLoggedIn ? 'Switch To Signup' : 'Switch To Login'}}</button>
           </div>
         </div>
         

@@ -6,9 +6,9 @@
             RECIPE BOOK
         </span>
 
-        <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/recipes" routerLinkActive="activebutton">Recipes</a></span>
+        <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/recipes" routerLinkActive="activebutton" *ngIf="isAuthenticated">Recipes</a></span>
 
-        <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/auth" routerLinkActive="activebutton">Login/SignUp</a></span>
+        <span fxShow="true" fxHide.lt-md="true"><a mat-button routerLink="/auth" routerLinkActive="activebutton" *ngIf="!isAuthenticated">Login/SignUp</a></span>
 
         <span fxShow="true" fxHide.lt-md="true"> <a mat-button routerLink="/shopping-list" routerLinkActive="activebutton">Shopping List</a>
         </span>
@@ -16,7 +16,10 @@
     </span>
 
     <span fxShow="true" fxHide.lt-md="true">
-        <button mat-button [matMenuTriggerFor]="menu">
+
+        <button mat-raised-button *ngIf="isAuthenticated">Logout</button>
+
+        <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuthenticated">
             Manage
             <mat-icon aria-hidden="false" aria-label="Example home icon">arrow_drop_down</mat-icon>
         </button>

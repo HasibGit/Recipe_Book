@@ -1,4 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnDestroy,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 import { Recipe } from '../recipes/recipe.model';
 import { RecipeService } from '../recipes/services/recipe.service';
 import { DataStorageService } from '../shared/data-storage.service';
@@ -8,12 +16,22 @@ import { DataStorageService } from '../shared/data-storage.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   @Output() displayContent = new EventEmitter<string>();
 
-  constructor(private dataStorageService: DataStorageService) {}
+  private userSub: Subscription;
+  isAuthenticated: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(
+    private dataStorageService: DataStorageService,
+    private authService: AuthService
+  ) {}
+
+  ngOnInit(): void {
+    this.userSub = this.authService.user.subscribe((user) => {
+      this.isAuthenticated = !user ? false : true;
+    });
+  }
 
   onSaveData() {
     this.dataStorageService.storeRecipes();
@@ -31,4 +49,8 @@ export class HeaderComponent implements OnInit {
   //     this.displayContent.emit('display shopping list');
   //   }
   // }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
 }
