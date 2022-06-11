@@ -22,10 +22,10 @@
   
         <div fxLayout="row" fxLayoutAlign="space-between center" class="btn-grp">
           <div>
-            <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">{{isLoggedIn ? 'Login' : 'Sign Up'}}</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!authForm.valid">{{loginMode ? 'Login' : 'Sign Up'}}</button>
           </div>
           <div>
-            <button mat-raised-button type="button" (click)="onSwitchMode()">{{isLoggedIn ? 'Switch To Signup' : 'Switch To Login'}}</button>
+            <button mat-raised-button type="button" (click)="onSwitchMode()">{{loginMode ? 'Switch To Signup' : 'Switch To Login'}}</button>
           </div>
         </div>
         

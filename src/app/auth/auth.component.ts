@@ -10,7 +10,7 @@ import { AuthResponseData, AuthService } from './auth.service';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent implements OnInit {
-  isLoggedIn: boolean = false;
+  loginMode: boolean = false;
   isLoading: boolean = false;
   error: string = null;
 
@@ -19,7 +19,7 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {}
 
   onSwitchMode() {
-    this.isLoggedIn = !this.isLoggedIn;
+    this.loginMode = !this.loginMode;
   }
 
   onSubmit(form: NgForm) {
@@ -33,7 +33,7 @@ export class AuthComponent implements OnInit {
 
     let authObservable: Observable<AuthResponseData>;
 
-    if (this.isLoggedIn) {
+    if (this.loginMode) {
       authObservable = this.authService.login(email, password);
     } else {
       authObservable = this.authService.signUp(email, password);
