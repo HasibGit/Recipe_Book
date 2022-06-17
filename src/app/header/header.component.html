@@ -17,7 +17,7 @@
 
     <span fxShow="true" fxHide.lt-md="true">
 
-        <button mat-raised-button *ngIf="isAuthenticated">Logout</button>
+        <button mat-raised-button *ngIf="isAuthenticated" (click)="onLogout()">Logout</button>
 
         <button mat-button [matMenuTriggerFor]="menu" *ngIf="isAuthenticated">
             Manage
