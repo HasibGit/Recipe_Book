@@ -22,9 +22,7 @@ export class DataStorageService {
         'https://recipe-book-1a0bc-default-rtdb.firebaseio.com/recipes.json',
         recipes
       )
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .subscribe((response) => {});
   }
 
   fetchRecipes() {

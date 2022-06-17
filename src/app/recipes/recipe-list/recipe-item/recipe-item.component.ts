@@ -25,7 +25,6 @@ export class RecipeItemComponent implements OnInit {
   ngOnInit(): void {}
 
   onClick(recipe: Recipe, id: number) {
-    console.log(id);
     this.recipeService.displaySelectedRecipe(recipe);
     this.router.navigate(['recipe/' + id], { relativeTo: this.route });
   }

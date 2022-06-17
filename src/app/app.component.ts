@@ -1,18 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'Recipe_Book';
+export class AppComponent implements OnInit {
+  constructor(private authService: AuthService) {}
 
-  constructor() {}
-
-  pageContent: string = 'display recipes';
-
-  contentToDisplay(content) {
-    this.pageContent = content;
+  ngOnInit(): void {
+    this.authService.autoLogin(); // upon page reload, this is the component that will get triggered first
   }
 }
