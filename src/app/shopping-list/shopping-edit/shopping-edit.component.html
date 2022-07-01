@@ -15,7 +15,7 @@
         <div class="make-space-above">
             <button mat-raised-button color="primary" style="margin: 3px" type="submit" [disabled]="!f.valid">{{editMode ? 'Update' : 'Add'}}</button>
             <button mat-raised-button color="warn" style="margin: 3px" (click)="onDelete()" *ngIf="editMode">Delete</button>
-            <button mat-raised-button color="accent" style="margin: 3px" (click)="clearForm()">Clear</button>
+            <button mat-raised-button style="margin: 3px" (click)="clearForm()">Clear</button>
         </div>
     </form>
 
