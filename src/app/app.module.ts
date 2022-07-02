@@ -7,14 +7,14 @@ import { RecipeService } from './recipes/services/recipe.service';
 import { ShoppingListService } from './shopping-list/services/shopping-list.service';
 import { RoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthComponent } from './auth/auth.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { SharedModule } from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, AuthComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     SharedModule,
@@ -22,6 +22,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     RecipesModule,
     ShoppingListModule,
+    AuthModule,
   ],
   providers: [
     RecipeService,
