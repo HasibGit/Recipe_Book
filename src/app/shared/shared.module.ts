@@ -14,15 +14,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AlertComponent, LoadingSpinnerComponent],
   imports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
@@ -41,8 +37,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AlertComponent,
     LoadingSpinnerComponent,
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
