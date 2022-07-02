@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
-import { ShoppingListComponent } from './shopping-list.component';
-import { RouterModule } from '@angular/router';
+import { AlertComponent } from './alert/alert.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -17,15 +16,46 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [ShoppingListComponent, ShoppingEditComponent],
+  declarations: [AlertComponent, LoadingSpinnerComponent],
   imports: [
-    SharedModule,
-    RouterModule.forChild([
-      { path: 'shopping-list', component: ShoppingListComponent },
-    ]),
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatListModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  exports: [
+    AlertComponent,
+    LoadingSpinnerComponent,
+    CommonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatListModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
-export class ShoppingListModule {}
+export class SharedModule {}
