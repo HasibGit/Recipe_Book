@@ -8,9 +8,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [ShoppingListComponent, ShoppingEditComponent],
   imports: [
     SharedModule,
-    RouterModule.forChild([
-      { path: 'shopping-list', component: ShoppingListComponent },
-    ]),
+    RouterModule.forChild([{ path: '', component: ShoppingListComponent }]),
   ],
 })
 export class ShoppingListModule {}
