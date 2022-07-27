@@ -1,4 +1,6 @@
 import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 import { Ingredient } from '../shared/ingredient.model';
 import { ShoppingListService } from './services/shopping-list.service';
 
@@ -9,12 +11,14 @@ import { ShoppingListService } from './services/shopping-list.service';
   providers: [],
 })
 export class ShoppingListComponent implements OnInit {
-  shoppingList: Ingredient[];
+  shoppingList: Observable<{ingredients: Ingredient[]}>;
+  private subscription: Subscription;
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private shoppingListService: ShoppingListService, private store: Store<{shoppingList: {ingredients: Ingredient[]}}>) {}
 
   ngOnInit(): void {
-    this.shoppingList = this.shoppingListService.getShoppingList();
+    this.shoppingList = this.store.select('shoppingList');
+    // this.shoppingList = this.shoppingListService.getShoppingList();
   }
 
   onEditItem(index) {
