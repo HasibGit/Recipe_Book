@@ -51,10 +51,11 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     );
 
     if (this.editMode) {
-      this.shoppingListService.updateIngredient(
-        this.editedItemIndex,
-        this.newIngredient
-      );
+      // this.shoppingListService.updateIngredient(
+      //   this.editedItemIndex,
+      //   this.newIngredient
+      // );
+      this.store.dispatch(new ShoppingListActions.UpdateIngredient({index: this.editedItemIndex, ingredient: this.newIngredient}));
       this.editMode = false;
     } else {
       // this.shoppingListService.addIngredient(this.newIngredient);
@@ -70,7 +71,8 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    this.shoppingListService.deleteIngredient(this.editedItemIndex);
+    // this.shoppingListService.deleteIngredient(this.editedItemIndex);
+    this.store.dispatch(new ShoppingListActions.DeleteIngredient(this.editedItemIndex));
     this.clearForm();
   }
 
