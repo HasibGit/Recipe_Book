@@ -11,7 +11,7 @@ import { RoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SharedModule } from './shared/shared.module';
-import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer';
+import * as fromApp from './store/app.reducer'
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -19,7 +19,7 @@ import { shoppingListReducer } from './shopping-list/store/shopping-list.reducer
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
-    StoreModule.forRoot({shoppingList: shoppingListReducer}),
+    StoreModule.forRoot(fromApp.appReducer),
     RoutingModule,
     HttpClientModule,
   ],
