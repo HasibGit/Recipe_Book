@@ -39,6 +39,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
        if (stateData.editedIngredientIndex > -1) {
          this.editMode = true;
          this.editedItem = stateData.editedIngredient;
+         this.editedItemIndex = stateData.editedIngredientIndex;
          this.addIngredientForm.setValue({
            ingredientName: this.editedItem.name,
            ingredientAmount: this.editedItem.amount,
@@ -72,7 +73,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       //   this.editedItemIndex,
       //   this.newIngredient
       // );
-      this.store.dispatch(new ShoppingListActions.UpdateIngredient({index: this.editedItemIndex, ingredient: this.newIngredient}));
+      this.store.dispatch(new ShoppingListActions.UpdateIngredient(this.newIngredient));
       this.editMode = false;
     } else {
       // this.shoppingListService.addIngredient(this.newIngredient);
@@ -90,7 +91,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
 
   onDelete() {
     // this.shoppingListService.deleteIngredient(this.editedItemIndex);
-    this.store.dispatch(new ShoppingListActions.DeleteIngredient(this.editedItemIndex));
+    this.store.dispatch(new ShoppingListActions.DeleteIngredient());
     this.clearForm();
   }
 
