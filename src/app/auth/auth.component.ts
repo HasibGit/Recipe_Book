@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { AuthResponseData, AuthService } from './auth.service';
+import * as fromApp from '../store/app.reducer';
+import * as authActions from './store/auth.actions';
 
 @Component({
   selector: 'app-auth',
@@ -14,9 +17,18 @@ export class AuthComponent implements OnInit {
   isLoading: boolean = false;
   error: string = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private store: Store<fromApp.AppState>
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.store.select('auth').subscribe((authState) => {
+      this.isLoading = authState.loading;
+      this.error = authState.authError;
+    });
+  }
 
   onSwitchMode() {
     this.loginMode = !this.loginMode;
@@ -34,21 +46,24 @@ export class AuthComponent implements OnInit {
     let authObservable: Observable<AuthResponseData>;
 
     if (this.loginMode) {
-      authObservable = this.authService.login(email, password);
+      // authObservable = this.authService.login(email, password);
+      this.store.dispatch(
+        new authActions.LoginStart({ email: email, password: password })
+      );
     } else {
       authObservable = this.authService.signUp(email, password);
     }
 
-    authObservable.subscribe({
-      next: (res) => {
-        this.isLoading = false;
-        this.router.navigate(['/recipes']);
-      },
-      error: (errorMsg) => {
-        this.error = errorMsg;
-        this.isLoading = false;
-      },
-    });
+    // authObservable.subscribe({
+    //   next: (res) => {
+    //     this.isLoading = false;
+    //     this.router.navigate(['/recipes']);
+    //   },
+    //   error: (errorMsg) => {
+    //     this.error = errorMsg;
+    //     this.isLoading = false;
+    //   },
+    // });
 
     form.reset();
   }

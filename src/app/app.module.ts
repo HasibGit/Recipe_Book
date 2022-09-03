@@ -11,7 +11,9 @@ import { RoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { SharedModule } from './shared/shared.module';
-import * as fromApp from './store/app.reducer'
+import * as fromApp from './store/app.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/store/auth.effects';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
@@ -20,6 +22,7 @@ import * as fromApp from './store/app.reducer'
     BrowserAnimationsModule,
     SharedModule,
     StoreModule.forRoot(fromApp.appReducer),
+    EffectsModule.forRoot([AuthEffects]),
     RoutingModule,
     HttpClientModule,
   ],
