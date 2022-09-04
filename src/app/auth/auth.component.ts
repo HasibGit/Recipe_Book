@@ -43,7 +43,7 @@ export class AuthComponent implements OnInit {
     const email = form.value.email;
     const password = form.value.password;
 
-    let authObservable: Observable<AuthResponseData>;
+    // let authObservable: Observable<AuthResponseData>;
 
     if (this.loginMode) {
       // authObservable = this.authService.login(email, password);
@@ -51,7 +51,10 @@ export class AuthComponent implements OnInit {
         new authActions.LoginStart({ email: email, password: password })
       );
     } else {
-      authObservable = this.authService.signUp(email, password);
+      // authObservable = this.authService.signUp(email, password);
+      this.store.dispatch(
+        new authActions.SignupStart({ email: email, password: password })
+      );
     }
 
     // authObservable.subscribe({
